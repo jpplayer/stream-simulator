@@ -1,42 +1,53 @@
 package com.hortonworks.streaming.impl.domain.wellsfargo;
 
 import com.hortonworks.streaming.impl.domain.Event;
+import com.hortonworks.streaming.impl.domain.wellsfargo.FixEvent.FixEventEnum;
 
-import java.io.File;
-import java.io.IOException;
 import java.io.InputStream;
-import java.nio.ByteBuffer;
-import java.nio.charset.Charset;
 import java.sql.Timestamp;
-import java.util.Random;
+import java.util.HashMap;
+import java.util.Map;
 
-import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 
 public class SdrEvent extends Event {
     
-    private static String msg1;
+    public enum SdrEventEnum {
+        sdr_4k, sdr_16k, sdr_240k
+    }
+    
+    private static Map<SdrEventEnum, String> templates = new HashMap<SdrEventEnum, String>(); 
+    
     static { 
     	try {
     		InputStream is = SdrEvent.class.getResourceAsStream("qaproject1_SDR_REPORTING_155098_TradeId_11000938_.txt");
-    		msg1 = org.apache.commons.io.IOUtils.toString( is , "UTF-8");
+    		templates.put( SdrEventEnum.sdr_4k, IOUtils.toString( is , "UTF-8")) ;
+    		is = SdrEvent.class.getResourceAsStream("qaproject1_SDR_REPORTING_186661_TradeId_11008962_.txt");
+    		templates.put( SdrEventEnum.sdr_16k, IOUtils.toString( is , "UTF-8")) ;
+    		is = SdrEvent.class.getResourceAsStream("qaproject1_SDR_REPORTING_181391_TradeId_11007774_.txt");
+    		templates.put( SdrEventEnum.sdr_240k, IOUtils.toString( is , "UTF-8")) ;
     	}
-    	catch (Exception e) { System.out.println("Exception: " + e.getMessage() );}
+    	catch (Exception e) {  
+    		throw new RuntimeException( "Exception in SdrEvent." , e );
+    	}
     }
     
     private static long tradeIdSeed = 0; 
     
-    private static long effectiveDateStart=Timestamp.valueOf("2012-01-01 00:00:00").getTime();
-    private static long effectiveDateOffset=Timestamp.valueOf("2013-01-01 00:00:00").getTime() - effectiveDateStart + 1;
+    private static long effectiveDateStart=Timestamp.valueOf("2013-11-01 00:00:00").getTime();
+    private static long effectiveDateOffset=Timestamp.valueOf("2013-12-31 00:00:00").getTime() - effectiveDateStart + 1;
     
-    private static long terminationDateStart=Timestamp.valueOf("2012-01-01 00:00:00").getTime();
-    private static long terminationDateOffset=Timestamp.valueOf("2013-01-01 00:00:00").getTime() - effectiveDateStart + 1;
+    private static long terminationDateStart=Timestamp.valueOf("2013-11-01 00:00:00").getTime();
+    private static long terminationDateOffset=Timestamp.valueOf("2013-12-31 00:00:00").getTime() - effectiveDateStart + 1;
     
-    
+
+    private SdrEventEnum eventType; // should be an enum
     private long tradeId;
     private Timestamp effectiveDate;
     private Timestamp terminationDate;
     
-	public SdrEvent() {
+	public SdrEvent( SdrEventEnum eventType ) {
+        this.eventType = eventType;
         tradeIdSeed ++;
         tradeId = tradeIdSeed;
         effectiveDate = new Timestamp(effectiveDateStart + (long)(Math.random() * effectiveDateOffset));
@@ -46,8 +57,9 @@ public class SdrEvent extends Event {
 	
     @Override
 	public String toString() {
+        String template = templates.get( eventType );
         
-        return msg1
+        return template
             .replace("${tradeId}", String.valueOf(tradeId))
             .replace("${effectiveDate}",String.valueOf(effectiveDate))
             .replace("${terminationDate}",String.valueOf(terminationDate));
