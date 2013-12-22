@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="UTF-8"?><bo_request>
+<source>Endur.silvernew</source>
+<enriched_data>
+<fo_job_id>2088420</fo_job_id>
+<fo_interface_id>15038769.-1.-1</fo_interface_id>
+<LEBusinessType>DEALR</LEBusinessType>
+<ExchangeCustomerFlag>true</ExchangeCustomerFlag>
+<InternalCustomerFlag>false</InternalCustomerFlag>
+<LECIDId>732978</LECIDId>
+<ICEOK>true</ICEOK>
+<product-look-up>
+<product position="0">
+<ice-product-id>111</ice-product-id>
+<ice-product-name>3.5% Rdam Barges swap</ice-product-name>
+<ice-product-type>NonExotic NonOption</ice-product-type>
+<exotic>FALSE</exotic>
+<ice-ok>true</ice-ok>
+</product>
+</product-look-up>
+<ManualReviewFlag/>
+<OurLongName>Wells Fargo Bank, N.A.</OurLongName>
+<OurAttention>CONFIRMATIONS</OurAttention>
+<OurContactName>Wells Fargo Bank, N.A.</OurContactName>
+<OurStreet>301 South College Street, 7th Floor
+MAC D1053-070</OurStreet>
+<OurEmail> </OurEmail>
+<OurCity>Charlotte</OurCity>
+<OurState>NC</OurState>
+<OurCountry>USA</OurCountry>
+<OurZip>28202</OurZip>
+<OurPhone>1-800-249-3865</OurPhone>
+<OurFax> </OurFax>
+<isda-master-date>${effectiveDate}</isda-master-date>
+<GddSigBlockType/>
+<GddSigBlockId>55349</GddSigBlockId>
+<GddSigBlockUpdateTime/>
+<OurSettlementInstructions1>Wells Fargo Bank, N.A.</OurSettlementInstructions1>
+<OurSettlementInstructions2>ABA 121000248</OurSettlementInstructions2>
+<OurSettlementInstructions3>Ref: Derivative Desk (Trade No: 3587038)</OurSettlementInstructions3>
+<OurSettlementInstructions4>Account #: 01014894464228</OurSettlementInstructions4>
+<LegalAgreementType>ISDA Master</LegalAgreementType>
+<LegalAgreementDate>${effectiveDate}</LegalAgreementDate>
+<LegalAgreementClause> This CP requires the office/branch to be specified on the confirm, see trade 9546730 as an example.</LegalAgreementClause>
+<MasterType>ISDA Master</MasterType>
+<MasterStatus>SIGNED</MasterStatus>
+<BaseContractNumber/>
+<MarketerId> </MarketerId>
+<TraderId>A923634</TraderId>
+<CollateralPhone>(704) 383-9529</CollateralPhone>
+<CptyLongName>A N Other Bank</CptyLongName>
+<CptyAttention>CONFIRMATIONS</CptyAttention>
+<CptyContactName>John Appleseed</CptyContactName>
+<CptyStreet>A N Other Bank Road</CptyStreet>
+<CptyEmail>john.appleseed@anotherbank.com</CptyEmail>
+<CptyCity>Toronto, Ontario</CptyCity>
+<CptyState> </CptyState>
+<CptyCountry>CANADA</CptyCountry>
+<CptyZip>M5J 2J5</CptyZip>
+<CptyPhone>416-842-4579</CptyPhone>
+<CptyFax>416) 842 5083</CptyFax>
+<CounterpartySettlementInstructions1>Please provide written payment instructions.</CounterpartySettlementInstructions1>
+<CounterpartySettlementInstructions2>Wachovia will make no payments until</CounterpartySettlementInstructions2>
+<CounterpartySettlementInstructions3>written payment instructions are received.</CounterpartySettlementInstructions3>
+<CounterpartySettlementInstructions4>Phone: 1-800-249-3865 Fax: 1-704-383-8429</CounterpartySettlementInstructions4>
+<CalculationAgent>As per the ISDA Master Agreement</CalculationAgent>
+<POShortName>WBNA</POShortName>
+<POLongName>Wells Fargo Bank, N.A.</POLongName>
+<DocumentationPhone>704-410-5111</DocumentationPhone>
+<DocumentationFax>704-383-9139</DocumentationFax>
+</enriched_data>
+<canonical-cid-system-code>ENDUR</canonical-cid-system-code>
+<trade>
+<tradeId>${tradeId}</tradeId>
+<marketType>OTC</marketType>
+<bookName>CRUDE_SWAPS</bookName>
+<counterPartyName>ANOTHER BANK</counterPartyName>
+<action>AMEND_TRADER</action>
+<status>BOOKED</status>
+<tradeCurrency>USD</tradeCurrency>
+<traderName>Bob Smith</traderName>
+<tradeDate>${effectiveDate}</tradeDate>
+<settlementDate>2013-02-06</settlementDate>
+<message>
+                            
+                              Internal
+                              RBC wants to RP. Is Seller. USI provided does not have enough characters.
+
+Supplied USI = 10303617330011201207030002161255
+
+                              
+                              
+                              Bob Smith
+                            
+                          </message>
+<salesPerson>Bob Smith</salesPerson>
+<tradeQuantity>0</tradeQuantity>
+<tradePrice>0.0</tradePrice>
+<enteredUser>Bob Smith</enteredUser>
+<settlementCurrency>USD</settlementCurrency>
+<feeInfo/>
+<keyWords>
+<source>Endur.silvernew</source>
+<dealId>3587038</dealId>
+<transNumber>3945431</transNumber>
+<proxyFamily>Commodity</proxyFamily>
+<proxyType>CommoditySwap</proxyType>
+<proxySubType>Standard</proxySubType>
+<proxyDescription>CommoditySwap/2014-12-31/R:OIL_RTTRDM_BARGE_GO/P:550.000000/USD</proxyDescription>
+<keyword>
+<name>TradeDatetime</name>
+<value>2013-02-05T09:39:07</value>
+</keyword>
+<keyword>
+<name>DocAction</name>
+<value>No</value>
+</keyword>
+<keyword>
+<name>commodityType</name>
+<value/>
+</keyword>
+<keyword>
+<name>eConfirm</name>
+<value>TBD</value>
+</keyword>
+<keyword>
+<name>ICEReferenceId</name>
+<value>null</value>
+</keyword>
+<keyword>
+<name>TransferFrom</name>
+<value/>
+</keyword>
+<keyword>
+<name>TransferTo</name>
+<value/>
+</keyword>
+<keyword>
+<name>B2BLinkage</name>
+<value/>
+</keyword>
+<keyword>
+<name>Product_SubType</name>
+<value>null</value>
+</keyword>
+<keyword>
+<name>WF_MTM_Posting_Method</name>
+<value>null</value>
+</keyword>
+<keyword>
+<name>WellsStatus</name>
+<value>null</value>
+</keyword>
+<keyword>
+<name>isQAApplicable</name>
+<value>No</value>
+</keyword>
+<keyword>
+<name>event_type</name>
+<value>Origination</value>
+</keyword>
+<keyword>
+<name>WH_Receipt</name>
+<value>None</value>
+</keyword>
+<keyword>
+<name>MarginalImpact</name>
+<value>0</value>
+</keyword>
+<keyword>
+<name>InternalBU</name>
+<value>WBNA</value>
+</keyword>
+<keyword>
+<name>swaptionExpiryTime</name>
+<value/>
+</keyword>
+<keyword>
+<name>SwaptionDealReference</name>
+<value/>
+</keyword>
+<keyword>
+<name>IsBonaFideHedge</name>
+<value>No</value>
+</keyword>
+<keyword>
+<name>IsDSOMTrade</name>
+<value/>
+</keyword>
+<keyword>
+<name>sdr_backload</name>
+<value/>
+</keyword>
+<keyword>
+<name>midMarket</name>
+<value/>
+</keyword>
+<keyword>
+<name>IsDraftConfirm</name>
+<value/>
+</keyword>
+<keyword>
+<name>dealNotional</name>
+<value>24380.000000</value>
+</keyword>
+<keyword>
+<name>dealOutstandingNotional</name>
+<value/>
+</keyword>
+<keyword>
+<name>enteredDate</name>
+<value>2013-02-04T05:00:00</value>
+</keyword>
+<keyword>
+<name>wellsFargoId</name>
+<value>20271</value>
+</keyword>
+<keyword>
+<name>counterPartyId</name>
+<value>20276</value>
+</keyword>
+<keyword>
+<name>totalVolume</name>
+<value>1060.000000</value>
+</keyword>
+<keyword>
+<name>executedBy</name>
+<value>Harsh Sanghvi</value>
+</keyword>
+<keyword>
+<name>Is_SendToSDR</name>
+<value>YES</value>
+</keyword>
+<keyword>
+<name>proxySubType</name>
+<value>Standard</value>
+</keyword>
+<keyword>
+<name>tradeExecutionDatetime</name>
+<value>02/05/2013 05:34:57 PM EST</value>
+</keyword>
+<keyword>
+<name>tradeEnteredDatetime</name>
+<value>02/05/2013 09:39:07 AM</value>
+</keyword>
+<keyword>
+<name>indices</name>
+<value>OIL_RTTRDM_BARGE_GO</value>
+</keyword>
+<keyword>
+<name>action</name>
+<value>Amend</value>
+</keyword>
+<keyword>
+<name>action_date</name>
+<value/>
+</keyword>
+<keyword>
+<name>method</name>
+<value/>
+</keyword>
+<keyword>
+<name>voluntaryBuyout</name>
+<value/>
+</keyword>
+<keyword>
+<name>isCustomizedProfile</name>
+<value>No</value>
+</keyword>
+<keyword>
+<name>toolset</name>
+<value>ComSwap</value>
+</keyword>
+<keyword>
+<name>unique_sdr_request_id</name>
+<value>00035870380000</value>
+</keyword>
+<keyword>
+<name>usi</name>
+<value>103036173300112012070300021612550000000000</value>
+</keyword>
+<keyword>
+<name>prev_usi</name>
+<value/>
+</keyword>
+<keyword>
+<name>int_lei</name>
+<value>KB1H1DSPRFMYMCUFXT09</value>
+</keyword>
+<keyword>
+<name>ext_lei</name>
+<value>ES7IP3U3RHIGC71XBU11</value>
+</keyword>
+<keyword>
+<name>counterPartyLongName</name>
+<value>Royal Bank of Canada</value>
+</keyword>
+<keyword>
+<name>internalAffiliateLongName</name>
+<value>Wells Fargo Bank, N.A.</value>
+</keyword>
+<keyword>
+<name>externalAffiliateLongName</name>
+<value/>
+</keyword>
+<keyword>
+<name>entity_type_code</name>
+<value/>
+</keyword>
+<keyword>
+<name>financial_entity_flag</name>
+<value>No</value>
+</keyword>
+<keyword>
+<name>reporting_party</name>
+<value>No</value>
+</keyword>
+<keyword>
+<name>sdr_reportable</name>
+<value>DTCC</value>
+</keyword>
+<keyword>
+<name>end_user_exception</name>
+<value/>
+</keyword>
+<keyword>
+<name>clearing_organization</name>
+<value/>
+</keyword>
+<keyword>
+<name>dco_giveup</name>
+<value/>
+</keyword>
+<keyword>
+<name>confirm_execution_time</name>
+<value/>
+</keyword>
+<keyword>
+<name>compliance_category</name>
+<value>Category1</value>
+</keyword>
+<keyword>
+<name>amendment_date</name>
+<value>08/22/2013 04:51:14 PM</value>
+</keyword>
+<keyword>
+<name>variable_term</name>
+<value>No</value>
+</keyword>
+</keyWords>
+<customData/>
+<proxyProduct>
+<proxyType>commSwap</proxyType>
+<currency>USD</currency>
+<leg>
+<legId>0</legId>
+<pay_receive>Receive</pay_receive>
+<fixed_float>Float</fixed_float>
+<startDate>2014-12-01</startDate>
+<maturityDate>2014-12-31</maturityDate>
+<currency>USD</currency>
+<fixedRate>0.0</fixedRate>
+<quantity>1060.000000</quantity>
+<cashFlowSet>
+<customizedFields/>
+<cashFlow>
+<mode>Receive</mode>
+<pmtType>INTEREST</pmtType>
+<pmtBegin>2014-12-01</pmtBegin>
+<pmtEnd>2014-12-31</pmtEnd>
+<pmtDate>2015-01-08</pmtDate>
+<pmtAmount>0.0</pmtAmount>
+<pmtCurrency>USD</pmtCurrency>
+<ratesOrFixedPrice>573.000000</ratesOrFixedPrice>
+<isFixed>false</isFixed>
+<knownDate>2014-12-31</knownDate>
+<isKnown>false</isKnown>
+<quantity>1060.000000</quantity>
+<spread>0.000000</spread>
+<priceFixingDates>
+<fixingDate>2014-12-31</fixingDate>
+</priceFixingDates>
+<xml_blob>
+<UOM>MT</UOM>
+<gbd>20</gbd>
+<volume_status/>
+<contractMonth>Dec-14</contractMonth>
+</xml_blob>
+</cashFlow>
+</cashFlowSet>
+<xml_blob>
+<commodity>
+<name>Gasoil</name>
+<group>Refined Product</group>
+<location>OIL_RTTRDM_BARGE_GO</location>
+<pipelineName/>
+<zone/>
+<source>PLATTS EUROPEAN MARKET SCAN</source>
+<meter/>
+<minQty>0</minQty>
+<maxQty>0</maxQty>
+</commodity>
+<quote_unit>MT</quote_unit>
+<price_unit>MT</price_unit>
+<nearby>1</nearby>
+<rollConvention>Month End</rollConvention>
+<resetRollConvention>GDM</resetRollConvention>
+<resetHolidaySchedule>
+<resetHolidays>PLATTS-EURO</resetHolidays>
+</resetHolidaySchedule>
+<avgPeriod>1m</avgPeriod>
+<avgType>Unweighted</avgType>
+<LTDoffset>0</LTDoffset>
+<paymentHolidaysSet>
+<paymentHolidays>NYC</paymentHolidays>
+</paymentHolidaysSet>
+<pmtOffset>5</pmtOffset>
+<pmtOffsetRawValue>5d&gt;cre</pmtOffsetRawValue>
+<referencePrice>FUEL OIL-3.5 PERCENT-BARGES FOB ROTTERDAM-PLATTS EUROPEAN</referencePrice>
+<referencePriceExt/>
+<specifiedPrice/>
+<header/>
+<subHeader/>
+<isdaReferencePrice>FUEL OIL-3.5 PERCENT-BARGES FOB ROTTERDAM-PLATTS EUROPEAN</isdaReferencePrice>
+<qtyFreq>PERIOD</qtyFreq>
+<pmtFreq>MTH</pmtFreq>
+<indexCurrency>USD</indexCurrency>
+<resetShift>0d</resetShift>
+<resetPeriod>1d</resetPeriod>
+<resetConv>Normal</resetConv>
+<settlementPeriod>1m</settlementPeriod>
+<settlementFreq>Monthly</settlementFreq>
+<paymentPeriod>1M</paymentPeriod>
+<rounding>3</rounding>
+<settlementType>Cash Settlement</settlementType>
+<fixedAdder>0.000000</fixedAdder>
+<indexAdder>1.000000</indexAdder>
+<indexName>OIL_RTTRDM_BARGE_GO</indexName>
+<pmt_conv>Mod. Follow</pmt_conv>
+<idx_group>Refined Product</idx_group>
+<ref_src>PLATTS EUROPEAN MARKET SCAN</ref_src>
+<nearby>1</nearby>
+<projection_method/>
+</xml_blob>
+</leg>
+<leg>
+<legId>1</legId>
+<pay_receive>Pay</pay_receive>
+<fixed_float>Fixed</fixed_float>
+<startDate>2014-12-01</startDate>
+<maturityDate>2014-12-31</maturityDate>
+<currency>USD</currency>
+<fixedRate>550.000000</fixedRate>
+<quantity>1060.000000</quantity>
+<cashFlowSet>
+<customizedFields/>
+<cashFlow>
+<mode>Pay</mode>
+<pmtType>INTEREST</pmtType>
+<pmtBegin>2014-12-01</pmtBegin>
+<pmtEnd>2014-12-31</pmtEnd>
+<pmtDate>2015-01-08</pmtDate>
+<pmtAmount>-583000.000000</pmtAmount>
+<pmtCurrency>USD</pmtCurrency>
+<ratesOrFixedPrice>550.000000</ratesOrFixedPrice>
+<isFixed>true</isFixed>
+<knownDate>2013-02-05</knownDate>
+<isKnown>true</isKnown>
+<quantity>-1060.000000</quantity>
+<spread>0.000000</spread>
+<xml_blob>
+<UOM>MT</UOM>
+<gbd>20</gbd>
+<volume_status/>
+<contractMonth/>
+</xml_blob>
+</cashFlow>
+</cashFlowSet>
+<xml_blob>
+<commodity>
+<name>Gasoil</name>
+<group>Refined Product</group>
+<location>OIL_RTTRDM_BARGE_GO</location>
+<pipelineName/>
+<zone/>
+<source>PLATTS EUROPEAN MARKET SCAN</source>
+<meter/>
+<minQty>0</minQty>
+<maxQty>0</maxQty>
+</commodity>
+<quote_unit>MT</quote_unit>
+<price_unit>MT</price_unit>
+<nearby>1</nearby>
+<rollConvention>Month End</rollConvention>
+<resetRollConvention>GDM</resetRollConvention>
+<resetHolidaySchedule>
+<resetHolidays>PLATTS-EURO</resetHolidays>
+</resetHolidaySchedule>
+<avgPeriod>0d</avgPeriod>
+<avgType>Unweighted</avgType>
+<LTDoffset>0</LTDoffset>
+<paymentHolidaysSet>
+<paymentHolidays>NYC</paymentHolidays>
+</paymentHolidaysSet>
+<pmtOffset>5</pmtOffset>
+<pmtOffsetRawValue>5d&gt;cre</pmtOffsetRawValue>
+<referencePrice>FUEL OIL-3.5 PERCENT-BARGES FOB ROTTERDAM-PLATTS EUROPEAN</referencePrice>
+<referencePriceExt/>
+<specifiedPrice/>
+<header/>
+<subHeader/>
+<isdaReferencePrice>FUEL OIL-3.5 PERCENT-BARGES FOB ROTTERDAM-PLATTS EUROPEAN</isdaReferencePrice>
+<qtyFreq>PERIOD</qtyFreq>
+<pmtFreq>MTH</pmtFreq>
+<indexCurrency>USD</indexCurrency>
+<resetShift>0d</resetShift>
+<resetPeriod>0d</resetPeriod>
+<resetConv>Normal</resetConv>
+<settlementPeriod>1m</settlementPeriod>
+<settlementFreq>Monthly</settlementFreq>
+<paymentPeriod>1M</paymentPeriod>
+<rounding>3</rounding>
+<settlementType>Cash Settlement</settlementType>
+<fixedAdder>0.000000</fixedAdder>
+<indexAdder>1.000000</indexAdder>
+<indexName>OIL_RTTRDM_BARGE_GO</indexName>
+<pmt_conv>Mod. Follow</pmt_conv>
+<idx_group>Refined Product</idx_group>
+<ref_src>PLATTS EUROPEAN MARKET SCAN</ref_src>
+<nearby>1</nearby>
+<projection_method/>
+</xml_blob>
+</leg>
+<xml_blob>
+<instrument_type>ENGY-SWAP</instrument_type>
+<instrument_subtype>CAL-AVG</instrument_subtype>
+<disruptionEvents/>
+<disruptionFallbacks>
+<fallback>Negotiated Fallback</fallback>
+<fallback>Calculation Agent Determination</fallback>
+</disruptionFallbacks>
+<tear_up_info/>
+<commodityTemplateName>1391343</commodityTemplateName>
+<BuySell>Buy</BuySell>
+<Comments>
+<deal_comment>
+<type>Internal</type>
+<comments>RBC wants to RP. Is Seller. USI provided does not have enough characters.
+
+Supplied USI = 10303617330011201207030002161255
+</comments>
+<startDate/>
+<endDate/>
+<name>Bob Smith</name>
+</deal_comment>
+</Comments>
+<gasHeatRate>1.000000</gasHeatRate>
+</xml_blob>
+</proxyProduct>
+</trade>
+</bo_request>
