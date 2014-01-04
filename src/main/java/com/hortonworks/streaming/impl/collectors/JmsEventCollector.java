@@ -4,6 +4,7 @@ import javax.jms.Connection;
 import javax.jms.DeliveryMode;
 import javax.jms.Destination;
 import javax.jms.JMSException;
+import javax.jms.MapMessage;
 import javax.jms.MessageProducer;
 import javax.jms.Session;
 import javax.jms.TextMessage;
@@ -12,6 +13,7 @@ import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
 import com.hortonworks.streaming.impl.domain.AbstractEventCollector;
+import com.hortonworks.streaming.impl.domain.wellsfargo.WFBEvent;
 import com.hortonworks.streaming.impl.messages.DumpStats;
 import com.hortonworks.streaming.results.utils.ConfigurationUtil;
 
@@ -54,17 +56,28 @@ public class JmsEventCollector extends AbstractEventCollector {
 	@Override
 	public void onReceive(Object message) throws Exception {
 		logger.debug(message);
+
 		if (message instanceof DumpStats) {
 			logger.info("Processed " + numberOfEventsProcessed + " events");
+		} else if(message instanceof WFBEvent) {
+			try {
+				/*TextMessage textMessage = session.createTextMessage(message
+						.toString());
+				producer.send(textMessage);*/
+				WFBEvent event = (WFBEvent) message;
+				MapMessage mapMessage = session.createMapMessage();
+				mapMessage.setString("guid", event.getUuid().toString());
+				mapMessage.setString("filename", event.getTemplate().getFileName());
+				mapMessage.setString("raw_message", message.toString());
+				producer.send(mapMessage);
+				logger.debug(message.toString());
+			} catch (Exception e) {
+				logger.error(e.getMessage(), e);
+			}
+		} else {
+			logger.info("I don't know how to handle this:" + message.getClass().getName());
 		}
-		try {
-			TextMessage textMessage = session.createTextMessage(message
-					.toString());
-			producer.send(textMessage);
-			logger.debug(message.toString());
-		} catch (Exception e) {
-			logger.error(e.getMessage(), e);
-		}
+		
 		numberOfEventsProcessed++;
 		if (numberOfEventsProcessed != -1
 				&& numberOfEventsProcessed == maxNumberOfEvents) {

@@ -1,30 +1,29 @@
 package com.hortonworks.streaming.impl.domain.wellsfargo;
 
-import com.hortonworks.streaming.impl.domain.Event;
-
-import java.io.File;
-import java.io.IOException;
 import java.io.InputStream;
-import java.nio.ByteBuffer;
-import java.nio.charset.Charset;
 import java.sql.Timestamp;
-import java.util.Random;
+import java.util.HashMap;
+import java.util.Map;
 
-import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 
-public class ScritturaEvent extends Event {
+public class ScritturaEvent extends WFBEvent {
+    private static final String _11009015_FILENAME = "scrittura_confirmACK_11009015.xml";
     
-    private static String template;
+    private static Map<CommoditiesEnum, WFBEvent.Template> templates = new HashMap<CommoditiesEnum, Template>(); 
+
+    public enum CommoditiesEnum {
+        _11009015
+    }
+    
     static { 
     	try {
-    		InputStream is = CommoditiesEvent.class.getResourceAsStream("scrittura_confirmACK_11009015.xml");
-    		template = org.apache.commons.io.IOUtils.toString( is , "UTF-8");
+    		InputStream is = SdrEvent.class.getResourceAsStream(_11009015_FILENAME);
+    		templates.put(CommoditiesEnum._11009015, new WFBEvent.Template(IOUtils.toString( is , "UTF-8"), _11009015_FILENAME)) ;
     	}
     	catch (Exception e) { System.out.println("Exception: " + e.getMessage() );}
     }
-    
-    private static long tradeIdSeed = 0; 
-    
+        
     private static long effectiveDateStart=Timestamp.valueOf("2012-01-01 00:00:00").getTime();
     private static long effectiveDateOffset=Timestamp.valueOf("2013-01-01 00:00:00").getTime() - effectiveDateStart + 1;
     
@@ -32,23 +31,22 @@ public class ScritturaEvent extends Event {
     private static long terminationDateOffset=Timestamp.valueOf("2013-01-01 00:00:00").getTime() - effectiveDateStart + 1;
     
     
-    private long tradeId;
     private Timestamp effectiveDate;
     private Timestamp terminationDate;
-    
+
 	public ScritturaEvent() {
-        tradeIdSeed ++;
-        tradeId = tradeIdSeed;
         effectiveDate = new Timestamp(effectiveDateStart + (long)(Math.random() * effectiveDateOffset));
         terminationDate = new Timestamp(terminationDateStart + (long)(Math.random() * terminationDateOffset));
+        setTemplate(templates.get(CommoditiesEnum._11009015));
 	}
 
 	
     @Override
 	public String toString() {
-        
-        return template
-            .replace("${tradeId}", String.valueOf(tradeId))
+    	String templateStr = getTemplate().getTemplatePayLoad();
+
+        return templateStr
+            .replace("${tradeId}", String.valueOf(this.getUuid()))
             .replace("${effectiveDate}",String.valueOf(effectiveDate))
             .replace("${terminationDate}",String.valueOf(terminationDate));
         
