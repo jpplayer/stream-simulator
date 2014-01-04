@@ -38,6 +38,7 @@ public class ScritturaEvent extends WFBEvent {
         effectiveDate = new Timestamp(effectiveDateStart + (long)(Math.random() * effectiveDateOffset));
         terminationDate = new Timestamp(terminationDateStart + (long)(Math.random() * terminationDateOffset));
         setTemplate(templates.get(CommoditiesEnum._11009015));
+        setType("XML");
 	}
 
 	

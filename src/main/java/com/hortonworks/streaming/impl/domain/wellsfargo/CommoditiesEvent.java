@@ -38,6 +38,7 @@ public class CommoditiesEvent extends WFBEvent {
         effectiveDate = new Timestamp(effectiveDateStart + (long)(Math.random() * effectiveDateOffset));
         terminationDate = new Timestamp(terminationDateStart + (long)(Math.random() * terminationDateOffset));
         setTemplate(templates.get(CommoditiesEnum._3587038));
+        setType("XML");
 	}
 
 	

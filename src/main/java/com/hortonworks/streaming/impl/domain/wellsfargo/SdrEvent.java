@@ -46,6 +46,7 @@ public class SdrEvent extends WFBEvent {
         effectiveDate = new Timestamp(effectiveDateStart + (long)(Math.random() * effectiveDateOffset));
         terminationDate = new Timestamp(terminationDateStart + (long)(Math.random() * terminationDateOffset));
         setTemplate(templates.get(eventType));
+        setType("TXT");
 	}
 
 	

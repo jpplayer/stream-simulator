@@ -68,6 +68,7 @@ public class JmsEventCollector extends AbstractEventCollector {
 				MapMessage mapMessage = session.createMapMessage();
 				mapMessage.setString("guid", event.getUuid().toString());
 				mapMessage.setString("filename", event.getTemplate().getFileName());
+				mapMessage.setString("type", event.getType());
 				mapMessage.setString("raw_message", message.toString());
 				producer.send(mapMessage);
 				logger.debug(message.toString());

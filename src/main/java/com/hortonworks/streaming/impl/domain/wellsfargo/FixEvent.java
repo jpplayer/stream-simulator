@@ -23,7 +23,7 @@ public class FixEvent extends WFBEvent {
     
     static { 
     	try {
-    		InputStream is = SdrEvent.class.getResourceAsStream("");
+    		InputStream is = SdrEvent.class.getResourceAsStream(FIX1_FILENAME);
     		templates.put(FixEventEnum.fix1, new WFBEvent.Template(IOUtils.toString( is , "UTF-8"), FIX1_FILENAME));
     		is = SdrEvent.class.getResourceAsStream(FIX2_FILENAME);
     		templates.put(FixEventEnum.fix2, new WFBEvent.Template(IOUtils.toString( is , "UTF-8"), FIX2_FILENAME));    		
@@ -48,6 +48,7 @@ public class FixEvent extends WFBEvent {
         effectiveTimestamp = new Timestamp(dateStart + (long)(Math.random() * dateOffset));
         onetonine = random.nextInt(8) + 1;
         setTemplate(templates.get(eventType));
+        setType("FIX");
 	}
 
 	
