@@ -53,7 +53,6 @@ public class WFBEvent extends Event {
 			this.templatePayLoad = templatePayLoad;
 		}
 		
-    }
-    
+    }	
 	
 }

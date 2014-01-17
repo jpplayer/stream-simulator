@@ -140,7 +140,6 @@ public class AggregationServiceSource extends AbstractEventEmitter {
 			Creator<RentalService> {
 		private static final long serialVersionUID = -6248618599821101457L;
 
-		@Override
 		public T create() {
 			String rentalServiceId = RentalServiceConfig.getNextServiceId();
 			return (T) new RentalService(rentalServiceId, RentalServiceConfig
