@@ -23,6 +23,10 @@ public class KafkaCollector extends AbstractEventCollector {
         		"se016.ctolab.hortonworks.com:9092,se017.ctolab.hortonworks.com:9092,se018.ctolab.hortonworks.com:9092");
         props.put("serializer.class", "kafka.serializer.StringEncoder");
         props.put("request.required.acks", "0");
+        props.put("producer.type", "async");
+        props.put("batch.num.messages", "500");
+        props.put("compression.codec", "1");
+        props.put("default.replication.factor", "0");
 		
         ProducerConfig config = new ProducerConfig(props);
         producer = new Producer<String, String>(config);
