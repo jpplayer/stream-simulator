@@ -11,6 +11,7 @@ import kafka.producer.ProducerConfig;
 import com.hortonworks.streaming.impl.domain.AbstractEventCollector;
 import com.hortonworks.streaming.impl.domain.wellsfargo.WFBEvent;
 import com.hortonworks.streaming.impl.messages.DumpStats;
+import com.hortonworks.streaming.results.utils.ConfigurationUtil;
 
 public class KafkaCollector extends AbstractEventCollector {	
 	private Producer<String, String> producer;
@@ -18,6 +19,8 @@ public class KafkaCollector extends AbstractEventCollector {
 	public KafkaCollector() {
 		super();
 		System.err.println("Initializing Kafka");
+
+		//Same settings we used in the WFBS POC project KafkaBolt. Should really make this configurable
 		Properties props = new Properties();
         props.put("metadata.broker.list", 
         		"se016.ctolab.hortonworks.com:9092,se017.ctolab.hortonworks.com:9092,se018.ctolab.hortonworks.com:9092");
@@ -27,7 +30,8 @@ public class KafkaCollector extends AbstractEventCollector {
         props.put("batch.num.messages", "500");
         props.put("compression.codec", "1");
         props.put("default.replication.factor", "0");
-		
+		//Same settings we used in the WFBS POC project KafkaBolt. Should really make this configurable
+
         ProducerConfig config = new ProducerConfig(props);
         producer = new Producer<String, String>(config);
 	}
@@ -47,7 +51,8 @@ public class KafkaCollector extends AbstractEventCollector {
             	WFBEvent event  = (WFBEvent) message;
             	//guid, filename, type, raw
 				KeyedMessage<String, String> data = 
-						new KeyedMessage<String, String>("input.securities.wfbpoc.hortonworks", build(event));
+						new KeyedMessage<String, String>(ConfigurationUtil.getInstance()
+								.getProperty("kf.topic"), build(event));
                 producer.send(data);
 			} catch (Exception e) {
 				logger.error(e.getMessage(), e);
