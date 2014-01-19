@@ -37,8 +37,17 @@ public class JmsEventCollector extends AbstractEventCollector {
 					+ " and port: " + port);
 			connectionFactory = new ActiveMQConnectionFactory(user, password,
 					"tcp://" + host + ":" + port);
+
+			//WFB POC - who knows with activemq...so set it at every level
+			connectionFactory.setUseCompression(true);
+			connectionFactory.setUseAsyncSend(true);
+			connectionFactory.getPrefetchPolicy().setAll(15000);
+			connectionFactory.setAlwaysSessionAsync(false);
+
 			connection = connectionFactory.createConnection();
 
+			//WFB POC
+			((ActiveMQConnection) connection).setUseCompression(true);
 			//WFB POC Only - Message assumed delivery - for POC only
 			((ActiveMQConnection) connection).setUseAsyncSend(true);
 			//WFB POC Only - Massively larger prefetch so we're not throttled by session queueing
