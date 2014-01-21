@@ -5,7 +5,7 @@ import java.util.UUID;
 import com.hortonworks.streaming.impl.domain.Event;
 
 public class WFBEvent extends Event {
-	private static final UUID uuid = UUID.randomUUID();
+	private UUID uuid = UUID.randomUUID();
 	private Template template;
 	private String type;
 	
