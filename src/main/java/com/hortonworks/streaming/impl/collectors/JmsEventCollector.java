@@ -1,5 +1,8 @@
 package com.hortonworks.streaming.impl.collectors;
 
+import java.io.ByteArrayOutputStream;
+import java.util.zip.GZIPOutputStream;
+
 import javax.jms.Connection;
 import javax.jms.DeliveryMode;
 import javax.jms.Destination;
@@ -11,6 +14,7 @@ import javax.jms.TextMessage;
 
 import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
+import org.apache.commons.net.util.Base64;
 
 import com.hortonworks.streaming.impl.domain.AbstractEventCollector;
 import com.hortonworks.streaming.impl.domain.wellsfargo.WFBEvent;
@@ -25,10 +29,15 @@ public class JmsEventCollector extends AbstractEventCollector {
 	private Session session = null;
 	private Destination destination = null;
 	private MessageProducer producer = null;
+	private boolean compressencode = true;
+	//Just count number of chars before we compress. Forget bytes for now.
+	private long compressthreshold = 15000;
 
 	public JmsEventCollector() {
 		super();
 		try {
+			compressencode = Boolean.parseBoolean(ConfigurationUtil.getInstance().getProperty("jms.compressencode"));
+			compressthreshold = Long.parseLong(ConfigurationUtil.getInstance().getProperty("jms.compressthreshold"));
 			String host = ConfigurationUtil.getInstance().getProperty(
 					"jms.host");
 			String port = ConfigurationUtil.getInstance().getProperty(
@@ -67,6 +76,15 @@ public class JmsEventCollector extends AbstractEventCollector {
 		}
 	}
 
+	private static byte[] compressRecord(String record) throws Exception {
+		ByteArrayOutputStream out = new ByteArrayOutputStream();
+		GZIPOutputStream gzip = new GZIPOutputStream(out);
+		gzip.write(record.getBytes("UTF-8"));
+		gzip.close();
+		//return new String(Base64.encodeBase64(out.toByteArray()));
+		return out.toByteArray();
+	}
+	
 	public JmsEventCollector(int maxEvents) {
 		super(maxEvents);
 	}
@@ -86,10 +104,19 @@ public class JmsEventCollector extends AbstractEventCollector {
 				MapMessage mapMessage = session.createMapMessage();
 				mapMessage.setString("guid", event.getUuid().toString());
 				mapMessage.setString("filename", event.getTemplate().getFileName());
-				mapMessage.setString("type", event.getType());
-				mapMessage.setString("raw_message", message.toString());
+				String raw = message.toString();
+				boolean compressMe = compressencode && raw.length() > compressthreshold;
+				//Brittle, but tell the consumer this is compressed
+				mapMessage.setString("type", (compressMe ? "COMP_" : "") + event.getType());
+				if(compressMe) {
+					//if(event.getTemplate().getFileName().contains("7774")) System.err.println(compressRecord(raw));
+					mapMessage.setBytes("raw_message",  compressRecord(raw));
+				} else {
+					mapMessage.setString("raw_message",  raw);					
+				}
+
 				producer.send(mapMessage);
-				logger.debug(message.toString());
+				logger.debug(raw);
 			} catch (Exception e) {
 				logger.error(e.getMessage(), e);
 			}
