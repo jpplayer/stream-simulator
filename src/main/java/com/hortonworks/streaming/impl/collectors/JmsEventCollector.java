@@ -114,7 +114,9 @@ public class JmsEventCollector extends AbstractEventCollector {
 				} else {
 					mapMessage.setString("raw_message",  raw);					
 				}
-
+				mapMessage.setString("effective_date", event.getEffectiveDate());
+				mapMessage.setString("termination_date", event.getTerminationDate());
+				
 				producer.send(mapMessage);
 				logger.debug(raw);
 			} catch (Exception e) {

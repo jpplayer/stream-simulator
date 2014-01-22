@@ -54,6 +54,9 @@ public class SdrEvent extends WFBEvent {
 	public String toString() {
     	String templateStr = getTemplate().getTemplatePayLoad();
         
+    	setEffectiveDate(String.valueOf(effectiveDate));
+    	setTerminationDate(String.valueOf(terminationDate));
+
         return templateStr
             .replace("${tradeId}", String.valueOf(this.getUuid()))
             .replace("${effectiveDate}",String.valueOf(effectiveDate))

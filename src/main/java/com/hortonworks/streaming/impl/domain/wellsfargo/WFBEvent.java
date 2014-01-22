@@ -7,7 +7,9 @@ import com.hortonworks.streaming.impl.domain.Event;
 public class WFBEvent extends Event {
 	private UUID uuid = UUID.randomUUID();
 	private Template template;
-	private String type;
+	private String type  = "";
+	private String effectiveDate = "";
+	private String terminationDate = "";
 	
 	public Template getTemplate() {
 		return template;
@@ -25,6 +27,22 @@ public class WFBEvent extends Event {
 	}
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public void setEffectiveDate(String effectiveDate) {
+		this.effectiveDate = effectiveDate;
+	}
+
+	public String getEffectiveDate() {
+		return effectiveDate;
+	}
+
+
+	public void setTerminationDate(String terminationDate) {
+		this.terminationDate = terminationDate;
+	}
+	public String getTerminationDate() {
+		return terminationDate;
 	}
 
 	/* Carries file name and actual event template */

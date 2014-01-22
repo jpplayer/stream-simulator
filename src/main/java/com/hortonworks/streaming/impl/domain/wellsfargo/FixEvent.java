@@ -57,7 +57,7 @@ public class FixEvent extends WFBEvent {
     	String templateStr = getTemplate().getTemplatePayLoad();
 
         // String.valueOf(effectiveTimestamp)
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd-HH:mm:ss.sss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd'T'HHmmss.sssZ");
         Calendar cal = Calendar.getInstance();
         cal.setTime(effectiveTimestamp);
         
@@ -66,7 +66,10 @@ public class FixEvent extends WFBEvent {
         String effectiveDate = sdf.format(effectiveTimestamp);
         sdf = new SimpleDateFormat("yyyyMMdd-HH:mm:ss");
         String effectiveTimestampNoMicro = sdf.format(effectiveTimestamp);
-        
+
+    	setEffectiveDate(String.valueOf(effectiveDate));
+    	//setTerminationDate(String.valueOf(effectiveDate));
+
         templateStr = templateStr
             .replace("${onetonine}", String.valueOf(onetonine))
             .replace("${effectiveTimestamp}",effectiveTimestampFormatted)
